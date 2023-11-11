@@ -19,7 +19,7 @@ class RunCommand extends Command
             return;
         }
 
-        $data = load_input($this->argument('year'), $this->argument('day'), $this->hasOption('example'));
+        $data = load_input($this->argument('year'), $this->argument('day'), $this->option('example'));
         if ($data == null) {
             $this->error('Input file does not exist');
 
