@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Solutions;
+
+class Solution{{ $year }}{{ $day }}
+{
+    public function silver(string $data): string
+    {
+        return 'todo';
+    }
+
+    public function gold(string $data): string
+    {
+        return 'todo';
+    }
+}
