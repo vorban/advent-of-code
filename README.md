@@ -19,9 +19,9 @@
 </div>
 <br />
 
-# laravel-advent-of-code
+# Advent of Code
 
-Advent of Code template repository.
+Advent of Code solutions.
 
 Released under the MIT License.
 See <a href="./LICENSE">./LICENSE</a>.
