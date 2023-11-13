@@ -39,18 +39,31 @@ Copyright :copyright: 2023 Valentin Orban
 
 ## Installation
 
+### With Docker
 ```sh
 git clone git@github.com:vorban/advent-of-code.git
 cd advent-of-code
-docker run --rm --interactive --tty --volume $PWD:/app composer install
 
+docker run --rm --interactive --tty --volume $PWD:/app composer install
 sail up -d
+
+echo Enjoy!
+```
+
+### With local Composer
+
+```sh
+composer install
+
 echo Enjoy!
 ```
 
 ## Usage
 
+### Through Docker
 ```sh
+sail up -d
+
 # generate code file and download input
 sail artisan aoc:prepare {year} {day}
 
@@ -59,4 +72,16 @@ sail artisan aoc:run {year} {day} {--example}
 
 # once you're done for the day
 sail artisan aoc:update-badges
+```
+
+### With local PHP
+```sh
+# generate code file and download input
+php artisan aoc:prepare {year} {day}
+
+# hopefully first try !
+php artisan aoc:run {year} {day} {--example}
+
+# once you're done for the day
+php artisan aoc:update-badges
 ```
