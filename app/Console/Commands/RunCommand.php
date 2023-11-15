@@ -10,16 +10,23 @@ class RunCommand extends Command
 
     protected $description = 'Run the solution';
 
+    protected int $year;
+
+    protected int $day;
+
     public function handle()
     {
-        $instance = instanciate_solution($this->argument('year'), $this->argument('day'));
+        $this->year = intval($this->argument('year'));
+        $this->day = intval($this->argument('day'));
+
+        $instance = instanciate_solution($this->year, $this->day);
         if (! $instance) {
             $this->error('Solution not found');
 
             return;
         }
 
-        $data = load_input($this->argument('year'), $this->argument('day'), $this->option('example'));
+        $data = load_input($this->year, $this->day, $this->option('example'));
         if ($data == null) {
             $this->error('Input file does not exist');
 

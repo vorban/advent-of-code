@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Solutions;
+namespace App\Solutions\Year_2022;
 
 enum Option: int
 {
@@ -64,7 +64,7 @@ enum Outcome: int
     }
 }
 
-class Solution202202
+class Solution_02
 {
     public function silver(string $data): string
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Solutions;
+namespace App\Solutions\Year_2022;
 
 function getItemValue(string $item): int
 {
@@ -15,7 +15,7 @@ function getItemValue(string $item): int
     return 0;
 }
 
-class Solution202203
+class Solution_03
 {
     public function silver(string $data): string
     {

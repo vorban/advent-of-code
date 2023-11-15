@@ -39,49 +39,42 @@ Copyright :copyright: 2023 Valentin Orban
 
 ## Installation
 
-### With Docker
+First, click on "use this template" and generate a new repo based on this one.
+
 ```sh
 git clone git@github.com:vorban/advent-of-code.git
 cd advent-of-code
 
-docker run --rm --interactive --tty --volume $PWD:/app composer install
-sail up -d
+cp .env.example .env
+```
 
+### Using docker ?
+
+```sh
+docker run --rm --interactive --tty --volume $PWD:/app composer install
+
+vendor/bin/sail up -d
 echo Enjoy!
 ```
 
-### With local Composer
+### Got a local dev environment ?
 
 ```sh
 composer install
-
 echo Enjoy!
 ```
 
 ## Usage
 
-### Through Docker
-```sh
-sail up -d
+Use `sail or `php` depending on wether you want to use docker or not.
 
-# generate code file and download input
-sail artisan aoc:prepare {year} {day}
-
-# hopefully first try !
-sail artisan aoc:run {year} {day} {--example}
-
-# once you're done for the day
-sail artisan aoc:update-badges
-```
-
-### With local PHP
 ```sh
 # generate code file and download input
-php artisan aoc:prepare {year} {day}
+vendor/bin/sail artisan aoc:prepare {year} {day}
 
 # hopefully first try !
-php artisan aoc:run {year} {day} {--example}
+vendor/bin/sail artisan aoc:run {year} {day} {--example}
 
 # once you're done for the day
-php artisan aoc:update-badges
+vendor/bin/sail artisan aoc:update-badges
 ```

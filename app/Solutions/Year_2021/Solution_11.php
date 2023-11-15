@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Solutions;
+namespace App\Solutions\Year_2021;
 
 class Octopus
 {
@@ -51,7 +51,7 @@ function flash(array &$map, Octopus $octopus)
     }
 }
 
-class Solution202111
+class Solution_11
 {
     public function silver(string $data): string
     {

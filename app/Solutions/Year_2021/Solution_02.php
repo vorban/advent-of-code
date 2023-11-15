@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Solutions;
+namespace App\Solutions\Year_2021;
 
 enum InstructionType: string
 {
@@ -25,7 +25,7 @@ class Instruction
     }
 }
 
-class Solution202102
+class Solution_02
 {
     public function silver(string $data): string
     {

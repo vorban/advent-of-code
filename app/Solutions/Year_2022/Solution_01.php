@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Solutions;
+namespace App\Solutions\Year_2022;
 
-class Solution202201
+class Solution_01
 {
     public function silver(string $data): string
     {

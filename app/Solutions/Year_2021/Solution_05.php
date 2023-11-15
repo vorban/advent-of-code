@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Solutions;
+namespace App\Solutions\Year_2021;
 
 enum Orientation
 {
@@ -104,7 +104,7 @@ function fill_diagonal(array &$map, Line $line)
     }
 }
 
-class Solution202105
+class Solution_05
 {
     public function silver(string $data): string
     {

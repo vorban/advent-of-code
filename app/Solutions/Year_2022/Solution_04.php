@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Solutions;
+namespace App\Solutions\Year_2022;
 
 class Range
 {
@@ -27,7 +27,7 @@ class Range
     }
 }
 
-class Solution202204
+class Solution_04
 {
     public function silver(string $data): string
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Solutions;
+namespace App\Solutions\Year_2021;
 
 class Cell
 {
@@ -94,7 +94,7 @@ class Board
     }
 }
 
-class Solution202104
+class Solution_04
 {
     public function silver(string $data): string
     {

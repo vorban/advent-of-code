@@ -1,8 +1,6 @@
 <?php
 
-namespace App\Solutions;
-
-use SebastianBergmann\Diff\Chunk;
+namespace App\Solutions\Year_2021;
 
 enum ChunkType: string
 {
@@ -52,7 +50,7 @@ enum ChunkType: string
     }
 }
 
-class Solution202110
+class Solution_10
 {
     public function silver(string $data): string
     {

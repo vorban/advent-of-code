@@ -15,7 +15,6 @@ return [
     */
 
     'adventofcode' => [
-        'base_uri' => 'https://adventofcode.com',
         'session_cookie' => env('AOC_SESSION_COOKIE'),
     ],
 

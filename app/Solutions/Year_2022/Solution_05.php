@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Solutions;
+namespace App\Solutions\Year_2022;
 
 class Instruction
 {
@@ -42,7 +42,7 @@ function setupStacks(string $layout): array
     return $stacks;
 }
 
-class Solution202205
+class Solution_05
 {
     public function silver(string $data): string
     {

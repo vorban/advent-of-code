@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Solutions;
+namespace App\Solutions\Year_2019;
 
 function getFuelCost(int $mass, bool $recursive = false): int
 {
@@ -17,7 +17,7 @@ function getFuelCost(int $mass, bool $recursive = false): int
     return $theoretical;
 }
 
-class Solution201901
+class Solution_01
 {
     public function silver(string $data): string
     {

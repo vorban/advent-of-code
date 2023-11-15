@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Solutions;
+namespace App\Solutions\Year_2021;
 
 use Illuminate\Support\Collection;
 
@@ -109,7 +109,7 @@ function decipher(array $encoded): Collection
     return $cipher;
 }
 
-class Solution202108
+class Solution_08
 {
     public function silver(string $data): string
     {

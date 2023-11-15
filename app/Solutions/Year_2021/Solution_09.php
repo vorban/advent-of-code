@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Solutions;
+namespace App\Solutions\Year_2021;
 
 class Point
 {
@@ -82,7 +82,7 @@ function findLowPoints(array $map): array
     return $low_points;
 }
 
-class Solution202109
+class Solution_09
 {
     public function silver(string $data): string
     {
