@@ -66,7 +66,7 @@ echo Enjoy!
 
 ## Usage
 
-Use `sail or `php` depending on wether you want to use docker or not.
+Use `sail` or `php` depending on wether you want to use docker or not.
 
 ```sh
 # generate code file and download input
