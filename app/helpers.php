@@ -1,5 +1,7 @@
 <?php
 
+use GuzzleHttp\Client;
+
 if (! function_exists('instanciate_solution')) {
     function instanciate_solution($year, $day)
     {
@@ -33,5 +35,37 @@ if (! function_exists('file_force_contents')) {
             mkdir($dir);
         }
         file_put_contents($filename, $data, $flags);
+    }
+}
+
+if (! function_exists('get_client_to_aoc_website')) {
+    function get_client_to_aoc_website(string $url = null)
+    {
+        if (! $url) {
+            $url = 'https://adventofcode.com/';
+        }
+
+        return new Client([
+            'base_uri' => $url,
+            'headers' => [
+                'Cookie' => 'session='.config('services.adventofcode.session_cookie'),
+            ],
+        ]);
+    }
+}
+
+if (! function_exists('update_env_session_cookie')) {
+    function update_env_session_cookie(string $session)
+    {
+        $env = file('.env', FILE_IGNORE_NEW_LINES);
+
+        foreach ($env as $i => $line) {
+            if (str_starts_with($line, 'AOC_SESSION_COOKIE')) {
+                $env[$i] = "AOC_SESSION_COOKIE=$session";
+                break;
+            }
+        }
+
+        file_put_contents('.env', implode(PHP_EOL, $env));
     }
 }

@@ -3,7 +3,6 @@
 namespace App\Console\Commands;
 
 use Carbon\Carbon;
-use GuzzleHttp\Client;
 use Illuminate\Console\Command;
 
 class UpdateBadgesCommand extends Command
@@ -16,19 +15,12 @@ class UpdateBadgesCommand extends Command
     {
         if (config('services.adventofcode.session_cookie') === '') {
             $sessionCookie = $this->secret('Please copy paste your session cookie');
-            $this->updateEnvFile($sessionCookie);
+            update_env_session_cookie($sessionCookie);
             config(['services.adventofcode.session_cookie' => $sessionCookie]);
         }
 
-        // ----- Fetch and parse leaderboard -----
-        $url = sprintf('https://adventofcode.com/events');
-
-        $client = new Client();
-        $content = $client->get($url, [
-            'headers' => [
-                'Cookie' => 'session='.config('services.adventofcode.session_cookie'),
-            ],
-        ])->getBody()->getContents();
+        $this->info('Fetching yearly data...');
+        $content = get_client_to_aoc_website()->get('events')->getBody()->getContents();
 
         $years = [];
         $matches = [];
@@ -42,14 +34,19 @@ class UpdateBadgesCommand extends Command
         $blade = view('commands.badges', compact('years', 'yearsIterator'))->render();
         $blade = trim(preg_replace('/\n\s+/', "\n", $blade));
 
-        // ----- Update README.md -----
         $readme = file_get_contents(base_path('README.md'));
 
         // remove badges
         $readme = preg_replace('/<div>(?>.|\n)*<\/div>/', '', $readme);
         $readme = $blade.$readme;
 
-        $this->info('Updating README.md');
+        if ($years->sum() > 0) {
+            $this->info(sprintf('You\'ve got %d stars:', $years->sum()));
+            foreach ($years->sortKeys() as $year => $stars) {
+                $this->info(sprintf('- [%d] %02d', $year, $stars));
+            }
+        }
+        $this->info('-> Updating badges in README.md.');
 
         file_put_contents(base_path('README.md'), $readme);
     }
