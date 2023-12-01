@@ -48,7 +48,7 @@ class UpdateBadgesCommand extends Command
 
         $years = [];
         $matches = [];
-        preg_match_all('/<a href="\/(\d{4})">.*>( ?\d+)/', $content, $matches);
+        preg_match_all('/<a href="\/.*">\[(\d{4})\].*>( ?\d+)/', $content, $matches);
         foreach ($matches[0] as $key => $match) {
             $years[$matches[1][$key]] = intval($matches[2][$key]);
         }
