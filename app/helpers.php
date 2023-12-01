@@ -45,9 +45,23 @@ if (! function_exists('get_client_to_aoc_website')) {
             $url = 'https://adventofcode.com/';
         }
 
+        if (config('services.github.username') == null
+            || config('services.github.email') == null
+            || config('services.github.repository') == null) {
+            throw new Exception('Please fill in your github username, email and repository in your .env file');
+        }
+
+        $user_agent = sprintf(
+            'github.com/%s/%s by %s',
+            config('app.github_username'),
+            config('app.github_repository'),
+            config('app.github_email')
+        );
+
         return new Client([
             'base_uri' => $url,
             'headers' => [
+                'User-Agent' => $user_agent,
                 'Cookie' => 'session='.config('services.adventofcode.session_cookie'),
             ],
         ]);

@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use DOMDocument;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Storage;
 
 class PrepareCommand extends Command
 {
@@ -37,15 +38,28 @@ class PrepareCommand extends Command
     private function handleInputFile()
     {
         $filename = sprintf('resources/inputs/%d/%s.txt', $this->year, sprintf('%02d', $this->day));
+        $cache_filename = sprintf('inputs/%d/%s.txt', $this->year, sprintf('%02d', $this->day));
         if (file_exists($filename)) {
             $this->info('Input file already exists, skipping...');
 
             return;
         }
 
-        $this->info('Fetching input file...');
+        if (Storage::exists($cache_filename)) {
+            $this->info('Getting input file from cache...');
+            $content = Storage::get($cache_filename);
+            $this->info("-> Creating input file [$filename].");
+            file_force_contents($filename, $content);
+
+            return;
+        }
+
         $url = sprintf('%d/day/%d/input', $this->year, $this->day);
+        $this->info("Fetching input file from [$url]...");
         $content = get_client_to_aoc_website()->get($url)->getBody()->getContents();
+
+        $this->info('-> Caching input file...');
+        Storage::put($cache_filename, $content);
 
         $this->info("-> Creating input file [$filename].");
         file_force_contents($filename, $content);
@@ -54,6 +68,7 @@ class PrepareCommand extends Command
     private function handleExample()
     {
         $filename = sprintf('resources/inputs/%s/%s.example', $this->year, sprintf('%02d', $this->day));
+        $cache_filename = sprintf('inputs/%s/%s.example', $this->year, sprintf('%02d', $this->day));
 
         if (file_exists($filename)) {
             $this->info('Example file already exists, skipping...');
@@ -61,11 +76,28 @@ class PrepareCommand extends Command
             return;
         }
 
+        if (Storage::exists($cache_filename)) {
+            $this->info('Getting example file from cache...');
+            $content = Storage::get($cache_filename);
+            $this->info("-> Creating example file [$filename].");
+            file_force_contents($filename, $content);
+
+            return;
+        }
+
+        $data = null;
+
+        if (Storage::exists($cache_filename)) {
+            $this->info('Getting example file from cache...');
+            $data = Storage::get($cache_filename);
+        } else {
+            $url = sprintf('%s/day/%s', $this->year, $this->day);
+            $this->info("Fetching [$url] for example...");
+            $data = get_client_to_aoc_website()->get($url)->getBody()->getContents();
+            Storage::put($cache_filename, $data);
+        }
+
         $this->info('Searching for example...');
-
-        $url = sprintf('%s/day/%s', $this->year, $this->day);
-        $data = get_client_to_aoc_website()->get($url)->getBody()->getContents();
-
         $dom = new DOMDocument();
         libxml_use_internal_errors(true);
         $dom->loadHTML($data);

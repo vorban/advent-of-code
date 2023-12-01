@@ -4,6 +4,7 @@ namespace App\Console\Commands;
 
 use Carbon\Carbon;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Storage;
 
 class UpdateBadgesCommand extends Command
 {
@@ -19,8 +20,31 @@ class UpdateBadgesCommand extends Command
             config(['services.adventofcode.session_cookie' => $sessionCookie]);
         }
 
-        $this->info('Fetching yearly data...');
-        $content = get_client_to_aoc_website()->get('events')->getBody()->getContents();
+        $files = array_filter(Storage::files('events/'), function (string $file) {
+            if (preg_match('/\d{4}-\d{2}\d{2}\.html/', $file)) {
+                return false;
+            }
+
+            $date = Carbon::createFromFormat('Y-m-d', basename($file, '.html'));
+            if ($date->lte(Carbon::yesterday()->endOfDay())) {
+                return false;
+            }
+
+            return true;
+        });
+
+        $content = '';
+        if (count($files) > 0) {
+            $this->info('Getting data from cache until [tomorrow]...');
+            $content = Storage::get($files[0]);
+        } else {
+            $this->info('Fetching [https://adventofcode.com/events]...');
+            $content = get_client_to_aoc_website()->get('events')->getBody()->getContents();
+
+            $this->info('-> Creating cache file.');
+            Storage::delete(Storage::files('events/'));
+            Storage::put('events/'.Carbon::now()->format('Y-m-d').'.html', $content);
+        }
 
         $years = [];
         $matches = [];

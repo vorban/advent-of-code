@@ -18,4 +18,10 @@ return [
         'session_cookie' => env('AOC_SESSION_COOKIE'),
     ],
 
+    'github' => [
+        'username' => env('GITHUB_USERNAME'),
+        'email' => env('GITHUB_EMAIL'),
+        'repository' => env('GITHUB_REPOSITORY'),
+    ],
+
 ];
