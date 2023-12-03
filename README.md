@@ -2,8 +2,8 @@
 <div>
 <img alt="Laravel"
 src="https://img.shields.io/badge/laravel-%23FF2D20.svg?style=for-the-badge&logo=laravel&logoColor=white">
-<img alt="Total Stars: 44"
-src="https://img.shields.io/badge/total_stars%20⭐-44-fcd34d?style=for-the-badge">
+<img alt="Total Stars: 48"
+src="https://img.shields.io/badge/total_stars%20⭐-48-fcd34d?style=for-the-badge">
 </div>
 <br />
 <img alt="2015: 0"
@@ -19,12 +19,12 @@ src="https://img.shields.io/badge/2019%20⭐-4-f4f4f5">
 <br />
 <img alt="2020: 0"
 src="https://img.shields.io/badge/2020%20⭐-0-a8a29e">
-<img alt="2021: 26"
-src="https://img.shields.io/badge/2021%20⭐-26-f4f4f5">
+<img alt="2021: 28"
+src="https://img.shields.io/badge/2021%20⭐-28-f4f4f5">
 <img alt="2022: 10"
 src="https://img.shields.io/badge/2022%20⭐-10-f4f4f5">
-<img alt="2023: 4"
-src="https://img.shields.io/badge/2023%20⭐-4-f4f4f5">
+<img alt="2023: 6"
+src="https://img.shields.io/badge/2023%20⭐-6-f4f4f5">
 <img alt="2024: 0"
 src="https://img.shields.io/badge/2024%20⭐-0-a8a29e">
 <br />
