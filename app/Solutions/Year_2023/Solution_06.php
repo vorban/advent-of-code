@@ -19,21 +19,19 @@ function ways_to_beat($time, $record): int
     // because $delta == 0 means 1 root where equation == 0, so cannot beat
     // the score. $delta < 0 means we never even match the record.
 
-    // a is negative, so the curve is a peak as such: /\, not a bowl \/
-    // so the first time it crossed 0 is when
-
     // root1 = (-b - sqrt(delta)) / 2a; b = t; a = -1
     // root2 = (-b + sqrt(delta)) / 2a
     $left_root = (0 - $time - sqrt($delta)) / -2;
     $right_root = (0 - $time + sqrt($delta)) / -2;
 
-    // $the 1st root is where we match the record
+    // a is negative, so the curve is a peak as such: /\, not a bowl \/
+    // The 1st root is where we match the record, the 2nd is where loose again
     $root = intval(min($left_root, $right_root));
 
     // ways not to beat = $root on the left
     //                  + $root on the right
-    //                  - 1 index shenanigans
-    return $time - $root * 2 - 1;
+    // also $time - ways_not_to_beat does not account for the 0th option
+    return $time - $root * 2 - 1; // -1 because 0th option
 }
 
 class Solution_06
