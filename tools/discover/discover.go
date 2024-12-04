@@ -16,6 +16,45 @@ const MARKER = "// ----- marker: discovery ----- //"
 const IMPORT_MARKER = "// ----- marker: discovery - imports ----- //"
 
 func main() {
+	args := os.Args[1:]
+
+	if len(args) > 0 {
+		year := args[0]
+		day := args[1]
+		initDay(year, day)
+	}
+
+	updateSolver()
+}
+
+func initDay(year, day string) {
+	// create the directory
+	dir := fmt.Sprintf("./internal/%s-%s", year, day)
+	err := os.Mkdir(dir, 0755)
+	if err != nil {
+		panic(err)
+	}
+
+	// read stub file
+	stub, err := os.ReadFile("./assets/solution.stub")
+	if err != nil {
+		panic(err)
+	}
+
+	// replace {{ package }} with the correct package name
+	stub = []byte(strings.ReplaceAll(string(stub), "{{ package }}", fmt.Sprintf("solution%s%s", year, day)))
+
+	// create the main.go file
+	f, err := os.Create(fmt.Sprintf("%s/main.go", dir))
+	if err != nil {
+		panic(err)
+	}
+	defer f.Close()
+
+	f.Write(stub)
+}
+
+func updateSolver() {
 	// get files in ./internal
 	files, err := os.ReadDir("./internal")
 	if err != nil {

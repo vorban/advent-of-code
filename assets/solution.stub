@@ -1,0 +1,17 @@
+package {{ package }}
+
+import (
+	"fmt"
+	solutionRegister "vorban/advent-of-code/pkg"
+)
+
+var Solution = solutionRegister.Solution{
+	Silver: func(input string) string {
+		result := 0
+		return fmt.Sprintf("%d", result)
+	},
+	Gold: func(input string) string {
+		result := 0
+		return fmt.Sprintf("%d", result)
+	},
+}
