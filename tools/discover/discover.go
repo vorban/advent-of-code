@@ -27,8 +27,6 @@ func main() {
 		r, _ := regexp.Compile(`(\d{4})-(\d{2})`)
 		parts := r.FindStringSubmatch(file.Name())
 
-		fmt.Printf("parts: %v\n", parts)
-
 		// skip direct files and unmatched directories
 		if !file.IsDir() || len(parts) != 3 {
 			continue
