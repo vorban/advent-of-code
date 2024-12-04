@@ -1,6 +1,6 @@
 <div>
 	<img src="https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white">
-	<img src="https://img.shields.io/badge/total_stars%20⭐-004-fcd34d?style=for-the-badge">
+	<img src="https://img.shields.io/badge/total_stars%20⭐-006-fcd34d?style=for-the-badge">
 <br/>
 	<div>
 		<img src="https://img.shields.io/badge/2015%20⭐-00-a8a29e">
@@ -13,11 +13,13 @@
 		<img src="https://img.shields.io/badge/2021%20⭐-00-a8a29e">
 		<img src="https://img.shields.io/badge/2022%20⭐-00-a8a29e">
 		<img src="https://img.shields.io/badge/2023%20⭐-00-a8a29e">
-		<img src="https://img.shields.io/badge/2024%20⭐-04-f4f4f5">
+		<img src="https://img.shields.io/badge/2024%20⭐-06-f4f4f5">
 		<br>
+
 	</div>
 </div>
 <!-- ----- marker: badges ----- -->
+
 
 # advent-of-code
 
