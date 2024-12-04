@@ -25,7 +25,7 @@ type Badge struct {
 
 func (b Badge) ToBadgeString() string {
 	return fmt.Sprintf(
-		"\t\t<img src=\"%s/%d%%20⭐-%02d-%s\">\n",
+		"<img src=\"%s/%d%%20⭐-%02d-%s\">\n",
 		URL, b.Year, b.Stars, b.Color)
 }
 
@@ -83,7 +83,7 @@ func main() {
 		badges += badge.ToBadgeString()
 
 		if (i+1)%5 == 0 {
-			badges += "\t\t<br>\n"
+			badges += "<br>\n"
 		}
 	}
 
@@ -94,7 +94,7 @@ func main() {
 	goBadge := "<img src=\"https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white\">"
 
 	body := fmt.Sprintf(
-		"<div>\n\t%s\n\t%s\n<br/>\n\t<div>\n%s\n\t</div>\n</div>\n%s\n",
+		"<div>\n%s\n%s\n<br/>\n<div>\n%s\n</div>\n</div>\n%s\n",
 		goBadge, totalStars, badges, MARKER)
 
 	f, err := os.ReadFile("./README.md")
