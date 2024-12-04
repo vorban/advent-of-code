@@ -7,6 +7,7 @@ import (
 
 	// ----- marker: discovery - imports ----- //
 	solution202401 "vorban/advent-of-code/internal/2024-01"
+	solution202402 "vorban/advent-of-code/internal/2024-02"
 	// ----- marker: discovery - imports ----- //
 )
 
@@ -25,4 +26,5 @@ func main() {
 // ----- marker: discovery ----- //
 func DiscoverSolutions() {
 	solutionRegister.Add("2024", "01", solution202401.Solution)
+	solutionRegister.Add("2024", "02", solution202402.Solution)
 }
