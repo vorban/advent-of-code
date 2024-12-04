@@ -1,4 +1,4 @@
-package solutions
+package solution202401
 
 import (
 	"fmt"
@@ -42,7 +42,7 @@ func count(list []int, value int) int {
 	return count
 }
 
-var Day202401 = solutionRegister.Solution{
+var Solution = solutionRegister.Solution{
 	Silver: func(input string) string {
 		left, right := parse(input)
 

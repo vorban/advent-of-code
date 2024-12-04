@@ -3,8 +3,11 @@ package main
 import (
 	"fmt"
 	"os"
-	solutions "vorban/advent-of-code/internal"
 	solutionRegister "vorban/advent-of-code/pkg"
+
+	// ----- marker: discovery - imports ----- //
+	solution202401 "vorban/advent-of-code/internal/2024-01"
+	// ----- marker: discovery - imports ----- //
 )
 
 func main() {
@@ -21,5 +24,5 @@ func main() {
 
 // ----- marker: discovery ----- //
 func DiscoverSolutions() {
-	solutionRegister.Add("2024", "01", solutions.Day202401)
+	solutionRegister.Add("2024", "01", solution202401.Solution)
 }

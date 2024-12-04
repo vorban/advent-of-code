@@ -13,6 +13,7 @@ type Entry struct {
 }
 
 const MARKER = "// ----- marker: discovery ----- //"
+const IMPORT_MARKER = "// ----- marker: discovery - imports ----- //"
 
 func main() {
 	// get files in ./internal
@@ -23,11 +24,13 @@ func main() {
 
 	entries := []Entry{}
 	for _, file := range files {
-		r, _ := regexp.Compile(`(\d{4})-(\d{2})\.go`)
+		r, _ := regexp.Compile(`(\d{4})-(\d{2})`)
 		parts := r.FindStringSubmatch(file.Name())
 
-		// skip directories and unmatched files
-		if file.IsDir() || len(parts) <= 1 {
+		fmt.Printf("parts: %v\n", parts)
+
+		// skip direct files and unmatched directories
+		if !file.IsDir() || len(parts) != 3 {
 			continue
 		}
 
@@ -52,10 +55,30 @@ func main() {
 	// generate the function body
 	body := MARKER + "\nfunc DiscoverSolutions() {\n"
 	for _, entry := range entries {
-		body += fmt.Sprintf("\tsolutionRegister.Add(\"%s\", \"%s\", solutions.Day%s%s)\n", entry.year, entry.day, entry.year, entry.day)
+		body += fmt.Sprintf(
+			"\tsolutionRegister.Add(\"%s\", \"%s\", solution%s%s.Solution)\n",
+			entry.year, entry.day, entry.year, entry.day)
 	}
 	body += "}\n"
 
-	// write the new content
-	os.WriteFile("./cmd/solver.go", []byte(content+body), 0644)
+	f = []byte(content + body)
+
+	// generate the import statements
+	parts := strings.Split(string(f), IMPORT_MARKER)
+	if len(parts) != 3 {
+		panic("Import marker not found")
+	}
+
+	body = IMPORT_MARKER + "\n"
+	for _, entry := range entries {
+		body += fmt.Sprintf(
+			"\tsolution%s%s \"vorban/advent-of-code/internal/%s-%s\"\n",
+			entry.year, entry.day, entry.year, entry.day)
+	}
+	body += "\t" + IMPORT_MARKER
+
+	f = []byte(parts[0] + body + parts[2])
+
+	// write the new content to solver.go
+	os.WriteFile("./cmd/solver.go", f, 0644)
 }
