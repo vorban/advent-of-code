@@ -39,6 +39,16 @@ When adding a solution (i.e. a `internal/{year}-{day}.go` file), you can run the
 to modify your `cmd/solver.go` to discover it:
 
 ```sh
-go build -o bin ./tools/discover.go
+go build -o bin ./tools/discover
 ./bin/discover
+```
+
+### Updating badges
+
+You can update the badges in the readme with the following tool:
+
+```sh
+go build -o bin ./tools/updateBadges
+./bin/updateBadges
+# follow the instructions
 ```
