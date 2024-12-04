@@ -25,9 +25,19 @@
 ## Usage
 
 ```sh
-go build ./cmd/solver.go
-solver {year} {day} {silver|gold} [sample]
+go build -o bin ./cmd/solver.go
+./bin/solver {year} {day} {silver|gold} [sample]
 ```
 
 Both `year` and `day` should be left-padded with zeros (ex: `2024 03`).
 Specify `sample` to run with the small example given in the subject.
+
+### Discovering new solutions
+
+When adding a solution (i.e. a `internal/{year}-{day}.go` file), you can run the discover tool
+to modify your `cmd/solver.go` to discover it:
+
+```sh
+go build -o bin ./tools/discover.go
+./bin/discover
+```
