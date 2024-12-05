@@ -44,6 +44,14 @@ go build -o bin ./tools/discover
 ./bin/discover
 ```
 
+### Initializing a new solution
+
+You can also use the discover tool to initialize a new solution:
+```sh
+./bin/discover 2024 01
+# creates internal/2024-01/main.go,t then updates cmd/solver.go
+```
+
 ### Updating badges
 
 You can update the badges in the readme with the following tool:
