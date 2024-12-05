@@ -94,7 +94,7 @@ func main() {
 	goBadge := "<img src=\"https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white\">"
 
 	body := fmt.Sprintf(
-		"<div>\n%s\n%s\n<br/>\n<div>\n%s\n</div>\n</div>\n%s\n",
+		"<div>\n%s\n%s\n<br/>\n<div>\n%s\n</div>\n</div>\n%s",
 		goBadge, totalStars, badges, MARKER)
 
 	f, err := os.ReadFile("./README.md")
