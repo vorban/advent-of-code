@@ -7,11 +7,9 @@ import (
 
 var Solution = solutionRegister.Solution{
 	Silver: func(input string) string {
-		result := 0
-		return fmt.Sprintf("%d", result)
+		return fmt.Sprintf("%d", 42)
 	},
 	Gold: func(input string) string {
-		result := 0
-		return fmt.Sprintf("%d", result)
+		return fmt.Sprintf("%d", 42)
 	},
 }
