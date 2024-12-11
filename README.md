@@ -29,6 +29,9 @@
 ```sh
 go build -o bin ./cmd/solver.go
 ./bin/solver {year} {day} {silver|gold} [sample]
+
+# if developing, you can simply run:
+go run ./cmd/solver.go {year} {day} {silver|gold} [sample]
 ```
 
 Both `year` and `day` should be left-padded with zeros (ex: `2024 03`).
