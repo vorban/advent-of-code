@@ -1,6 +1,6 @@
 <div>
 <img src="https://img.shields.io/badge/go-%2300ADD8.svg?style=for-the-badge&logo=go&logoColor=white">
-<img src="https://img.shields.io/badge/total_stars%20⭐-018-fcd34d?style=for-the-badge">
+<img src="https://img.shields.io/badge/total_stars%20⭐-022-fcd34d?style=for-the-badge">
 <br/>
 <div>
 <img src="https://img.shields.io/badge/2015%20⭐-00-a8a29e">
@@ -13,7 +13,7 @@
 <img src="https://img.shields.io/badge/2021%20⭐-06-f4f4f5">
 <img src="https://img.shields.io/badge/2022%20⭐-00-a8a29e">
 <img src="https://img.shields.io/badge/2023%20⭐-00-a8a29e">
-<img src="https://img.shields.io/badge/2024%20⭐-12-f4f4f5">
+<img src="https://img.shields.io/badge/2024%20⭐-16-f4f4f5">
 <br>
 
 </div>
@@ -23,6 +23,19 @@
 # advent-of-code
 
 [Advent of code](https://adventofcode.com/) solutions in Go
+
+## Compliance with AoC automation rules
+
+This script/repo/tool does follow the automation guidelines on the [/r/adventofcode community wiki](https://www.reddit.com/r/adventofcode/wiki/faqs/automation).
+
+Specifically:
+- Outbound calls are made to `adventofcode.com/{year}` only.
+- There is exactly 1 outbound call per year of advent of code, upon execution
+  of the `updateBadges` script. Those calls are throttled to once every 2 seconds.
+- **Results of all calls are cached** for the day in `cache/`
+- The only way to bypass the cache is to manually delete it.
+- The User-Agent header in `tools/updateBadges/scrap.go:fetchHtml()` is set to
+  the .env variables (prompted if missing).
 
 ## Usage
 

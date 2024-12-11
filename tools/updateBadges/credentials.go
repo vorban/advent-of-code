@@ -28,7 +28,7 @@ func GetCredentials() Credentials {
 		f, _ := os.Create(".env")
 		f.Close()
 	} else if err != nil {
-		log.Fatal("Error loading .env file.\n")
+		log.Fatal("Error loading .env file.")
 	}
 
 	var username, repository, email, session string
@@ -63,29 +63,29 @@ func GetCredentials() Credentials {
 
 func validateCredentials(c Credentials) {
 	if c.Session == "" {
-		log.Fatal("Session ID is required\n")
+		log.Fatal("Session ID is required.")
 	}
 	if c.Username == "" {
-		log.Fatal("Username is required\n")
+		log.Fatal("Username is required.")
 	}
 	if c.Repository == "" {
-		log.Fatal("Repository is required\n")
+		log.Fatal("Repository is required.")
 	}
 	if c.Email == "" {
-		log.Fatal("Email is required\n")
+		log.Fatal("Email is required.")
 	}
 }
 
 func updateEnv(key string, value string) {
 	envFile, err := os.ReadFile(".env")
 	if err != nil {
-		log.Fatal("Could not read .env file.\n")
+		log.Fatal("Could not read .env file.")
 	}
 
 	env, _ := godotenv.UnmarshalBytes(envFile)
 	env[key] = value
 	err = godotenv.Write(env, "./.env")
 	if err != nil {
-		log.Fatal("Could not write to .env file.\n")
+		log.Fatal("Could not write to .env file.")
 	}
 }

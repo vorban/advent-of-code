@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"slices"
 	"strings"
@@ -28,7 +29,6 @@ func main() {
 	p, _ := pterm.DefaultProgressbar.WithTotal(lastYear - FIRST_YEAR + 1).WithTitle("Updating: XXXX").Start()
 	for year := FIRST_YEAR; year <= lastYear; year++ {
 		p.UpdateTitle(fmt.Sprintf("Updating: %d", year))
-		time.Sleep(1 * time.Second)
 		stars := GetStarsForYear(year, creds)
 		actualStars := 0
 		for day := 1; day <= 25; day++ {
@@ -44,12 +44,12 @@ func main() {
 
 	f, err := os.ReadFile("./README.md")
 	if err != nil {
-		panic(err)
+		log.Fatal("Could not read README.md.")
 	}
 
 	_, after, found := strings.Cut(string(f), MARKER)
 	if !found {
-		panic("Marker not found")
+		log.Fatal("Marker not found.")
 	}
 
 	content := generateReadmeSection(years) + after
