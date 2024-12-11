@@ -24,6 +24,19 @@
 
 [Advent of code](https://adventofcode.com/) solutions in Go
 
+## Compliance with AoC automation rules
+
+This script/repo/tool does follow the automation guidelines on the [/r/adventofcode community wiki](https://www.reddit.com/r/adventofcode/wiki/faqs/automation).
+
+Specifically:
+- Outbound calls are made to `adventofcode.com/{year}` only.
+- There is exactly 1 outbound call per year of advent of code, upon execution
+  of the `updateBadges` script. Those calls are throttled to once every 2 seconds.
+- **Results of all calls are cached** for the day in `cache/`
+- The only way to bypass the cache is to manually delete it.
+- The User-Agent header in `tools/updateBadges/scrap.go:fetchHtml()` is set to
+  the .env variables (prompted if missing).
+
 ## Usage
 
 ```sh
