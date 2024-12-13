@@ -52,6 +52,16 @@ func initDay(year, day string) {
 	defer f.Close()
 
 	f.Write(stub)
+
+	// create the sample file and the input file
+	err = os.WriteFile(fmt.Sprintf("./assets/%s%s-sample.txt", year, day), []byte(""), 0644)
+	if err != nil {
+		panic(err)
+	}
+	err = os.WriteFile(fmt.Sprintf("./assets/%s%s.txt", year, day), []byte(""), 0644)
+	if err != nil {
+		panic(err)
+	}
 }
 
 func updateSolver() {
