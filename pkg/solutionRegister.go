@@ -22,11 +22,11 @@ func Add(year string, day string, s Solution) Solution {
 	return s
 }
 
-func Run(year string, day string, part string, sample bool) string {
+func Run(year string, day string, part string, sampled bool, sample int) string {
 	key := getKey(year, day)
 
 	s := solutions[year+day]
-	input := loadInput(key, sample)
+	input := loadInput(key, sampled, sample)
 
 	if part == "silver" {
 		return s.Silver(input)
@@ -43,9 +43,12 @@ func Run(year string, day string, part string, sample bool) string {
 
 var solutions = map[string]Solution{}
 
-func loadInput(key string, sample bool) string {
-	if sample {
+func loadInput(key string, sampled bool, sample int) string {
+	if sampled {
 		key += "-sample"
+		if sample > 1 {
+			key += fmt.Sprintf("%d", sample)
+		}
 	}
 
 	key += ".txt"

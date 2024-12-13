@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"strconv"
 	solutionRegister "vorban/advent-of-code/pkg"
 
 	// ----- marker: discovery - imports ----- //
@@ -20,18 +21,27 @@ import (
 	solution202409 "vorban/advent-of-code/internal/2024-09"
 	solution202410 "vorban/advent-of-code/internal/2024-10"
 	solution202411 "vorban/advent-of-code/internal/2024-11"
+	solution202412 "vorban/advent-of-code/internal/2024-12"
 	// ----- marker: discovery - imports ----- //
 )
 
 func main() {
 	args := os.Args[1:]
 
-	year := args[0]
-	day := args[1]
+	year := args[0] // ex: 2024
+	day := args[1]  // ex: 02
+	part := args[2] // ex: silver
+
+	sampled := len(args) > 3 // ex: solver 2024 02 silver |sample|
+
+	sample := 1 // ex: solver 2024 02 silver |sample| 2
+	if len(args) > 4 {
+		sample, _ = strconv.Atoi(args[4])
+	}
 
 	DiscoverSolutions()
 
-	result := solutionRegister.Run(year, day, args[2], len(args) > 3)
+	result := solutionRegister.Run(year, day, part, sampled, sample)
 	fmt.Printf("Result: %s\n", result)
 }
 
@@ -51,4 +61,5 @@ func DiscoverSolutions() {
 	solutionRegister.Add("2024", "09", solution202409.Solution)
 	solutionRegister.Add("2024", "10", solution202410.Solution)
 	solutionRegister.Add("2024", "11", solution202411.Solution)
+	solutionRegister.Add("2024", "12", solution202412.Solution)
 }
