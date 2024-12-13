@@ -22,6 +22,7 @@ import (
 	solution202410 "vorban/advent-of-code/internal/2024-10"
 	solution202411 "vorban/advent-of-code/internal/2024-11"
 	solution202412 "vorban/advent-of-code/internal/2024-12"
+	solution202413 "vorban/advent-of-code/internal/2024-13"
 	// ----- marker: discovery - imports ----- //
 )
 
@@ -62,4 +63,5 @@ func DiscoverSolutions() {
 	solutionRegister.Add("2024", "10", solution202410.Solution)
 	solutionRegister.Add("2024", "11", solution202411.Solution)
 	solutionRegister.Add("2024", "12", solution202412.Solution)
+	solutionRegister.Add("2024", "13", solution202413.Solution)
 }
