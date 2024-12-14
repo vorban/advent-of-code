@@ -28,5 +28,6 @@ go.work.sum
 
 # ignore input files from adventofcode.com, they are licensed
 assets/*.txt
+output/*
 cache/*
 !cache/.gitkeep
