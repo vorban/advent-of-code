@@ -6,8 +6,6 @@ import "core:flags"
 import "core:fmt"
 import "core:os"
 import "core:strconv"
-import "core:strings"
-import "core:time"
 
 Command_Line :: struct {
 	year:   string `args:"pos=0" usage:"Year."`,
@@ -58,13 +56,15 @@ main :: proc() {
 
 			// either silver flag passed or no flags passed meaning execute all
 			if cli.silver || !cli.gold {
-				s, t := utils.run_timed_solver(solver.silver, "")
+				s, t := utils.run_timed_solver(solver.silver, input)
 				fmt.printf("- Silver [% 4dms]: %s\n", t, s)
+				delete(s)
 			}
 
 			if cli.gold || !cli.silver {
-				s, t := utils.run_timed_solver(solver.gold, "")
+				s, t := utils.run_timed_solver(solver.gold, input)
 				fmt.printf("- Gold   [% 4dms]: %s\n", t, s)
+				delete(s)
 			}
 		}
 	}
