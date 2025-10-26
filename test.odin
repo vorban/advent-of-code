@@ -38,3 +38,33 @@ test_2015_01_gold :: proc(t: ^testing.T) {
 		testing.expect_value(t, s, p.solution)
 	}
 }
+
+@(test)
+test_2015_02_silver :: proc(t: ^testing.T) {
+	pairs := []Pair {
+		Pair{input = "2x3x4", solution = "58"},
+		Pair{input = "1x1x10", solution = "43"},
+		Pair{input = "2x3x4\n1x1x10", solution = "101"},
+	}
+
+	for p in pairs {
+		s := solutions.SOLVER_2015_02.silver(p.input)
+		defer delete(s)
+		testing.expect_value(t, s, p.solution)
+	}
+}
+
+@(test)
+test_2015_02_gold :: proc(t: ^testing.T) {
+	pairs := []Pair {
+		Pair{input = "2x3x4", solution = "34"},
+		Pair{input = "1x1x10", solution = "14"},
+		Pair{input = "2x3x4\n1x1x10", solution = "48"},
+	}
+
+	for p in pairs {
+		s := solutions.SOLVER_2015_02.gold(p.input)
+		defer delete(s)
+		testing.expect_value(t, s, p.solution)
+	}
+}

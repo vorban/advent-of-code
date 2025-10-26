@@ -1,12 +1,14 @@
 package solutions
 
+import "core:fmt"
+
 import "../utils"
 
 SOLVER_YYYY_DD :: utils.Solver {
     silver = proc(input: string) -> string {
-        return "silver"
+        return fmt.aprintf("silver")
     },
     gold = proc(input: string) -> string {
-        return "gold"
+        return fmt.aprintf("gold")
     },
 }

@@ -1,8 +1,8 @@
 <!-- AOCR_BADGES_START -->
 <div>
-<img src="https://img.shields.io/badge/total_stars%20⭐-002%2F500-fcd34d?style=for-the-badge">
+<img src="https://img.shields.io/badge/total_stars%20⭐-004%2F500-fcd34d?style=for-the-badge">
 <br>
-<img src="https://img.shields.io/badge/2015%20⭐-02%2F50-e5e5e5">
+<img src="https://img.shields.io/badge/2015%20⭐-04%2F50-e5e5e5">
 <img src="https://img.shields.io/badge/2016%20⭐-00%2F50-a8a29e">
 <img src="https://img.shields.io/badge/2017%20⭐-00%2F50-a8a29e">
 <img src="https://img.shields.io/badge/2018%20⭐-00%2F50-a8a29e">
