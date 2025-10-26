@@ -1,0 +1,12 @@
+package solutions
+
+import "../utils"
+
+SOLVER_YYYY_DD :: utils.Solver {
+    silver = proc(input: string) -> string {
+        return "silver"
+    },
+    gold = proc(input: string) -> string {
+        return "gold"
+    },
+}
