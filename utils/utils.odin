@@ -1,8 +1,8 @@
 package utils
 
+import "core:crypto/legacy/md5"
 import "core:fmt"
 import "core:os"
-import "core:strings"
 import "core:time"
 Solver :: struct {
 	silver: proc(s: string) -> string,
@@ -45,4 +45,15 @@ get_input_file :: proc(key: string) -> string {
 	if (!ok) do return string("")
 
 	return string(input_file)
+}
+
+get_md5 :: proc(s: string, allocator := context.allocator) -> [16]byte {
+	ctx: md5.Context
+	hash: [16]byte
+
+	md5.init(&ctx)
+	md5.update(&ctx, transmute([]u8)s)
+	md5.final(&ctx, hash[:])
+
+	return hash
 }

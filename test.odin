@@ -98,3 +98,32 @@ test_2015_03_gold :: proc(t: ^testing.T) {
 		testing.expect_value(t, s, p.solution)
 	}
 }
+
+@(test)
+test_2015_04_silver :: proc(t: ^testing.T) {
+	pairs := []Pair {
+		Pair{input = "abcdef", solution = "609043"},
+		Pair{input = "pqrstuv", solution = "1048970"},
+	}
+
+	for p in pairs {
+		s := solutions.SOLVER_2015_04.silver(p.input)
+		defer delete(s)
+		testing.expect_value(t, s, p.solution)
+	}
+}
+
+@(test)
+test_2015_04_gold :: proc(t: ^testing.T) {
+	pairs := []Pair {
+		// Pair{input = ">", solution = "2"},
+		// Pair{input = "^>v<", solution = "4"},
+		// Pair{input = "^v^v^v^v^v", solution = "2"},
+	}
+
+	for p in pairs {
+		s := solutions.SOLVER_2015_04.gold(p.input)
+		defer delete(s)
+		testing.expect_value(t, s, p.solution)
+	}
+}
