@@ -114,15 +114,31 @@ test_2015_04_silver :: proc(t: ^testing.T) {
 }
 
 @(test)
-test_2015_04_gold :: proc(t: ^testing.T) {
+test_2015_05_silver :: proc(t: ^testing.T) {
 	pairs := []Pair {
-		// Pair{input = ">", solution = "2"},
-		// Pair{input = "^>v<", solution = "4"},
-		// Pair{input = "^v^v^v^v^v", solution = "2"},
+		Pair {
+			input = "ugknbfddgicrmopn\naaa\njchzalrnumimnmhp\nhaegwjzuvuyypxyu\ndvszwmarrgswjxmb\n",
+			solution = "2",
+		},
 	}
 
 	for p in pairs {
-		s := solutions.SOLVER_2015_04.gold(p.input)
+		s := solutions.SOLVER_2015_05.silver(p.input)
+		defer delete(s)
+		testing.expect_value(t, s, p.solution)
+	}
+}
+@(test)
+test_2015_05_gold :: proc(t: ^testing.T) {
+	pairs := []Pair {
+		Pair {
+			input = "qjhvhtzxzqqjkmpb\nxxyxx\nuurcxstgmygtbstg\nieodomkazucvgmuy\n",
+			solution = "2",
+		},
+	}
+
+	for p in pairs {
+		s := solutions.SOLVER_2015_05.gold(p.input)
 		defer delete(s)
 		testing.expect_value(t, s, p.solution)
 	}

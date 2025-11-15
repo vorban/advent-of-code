@@ -57,3 +57,13 @@ get_md5 :: proc(s: string, allocator := context.allocator) -> [16]byte {
 
 	return hash
 }
+
+
+is_vowel :: proc(r: rune) -> bool {
+	vowels := []rune{'a', 'e', 'i', 'o', 'u'}
+	for v in vowels {
+		if r == v do return true
+	}
+
+	return false
+}
