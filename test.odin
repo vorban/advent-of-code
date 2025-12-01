@@ -128,6 +128,7 @@ test_2015_05_silver :: proc(t: ^testing.T) {
 		testing.expect_value(t, s, p.solution)
 	}
 }
+
 @(test)
 test_2015_05_gold :: proc(t: ^testing.T) {
 	pairs := []Pair {
@@ -139,6 +140,32 @@ test_2015_05_gold :: proc(t: ^testing.T) {
 
 	for p in pairs {
 		s := solutions.SOLVER_2015_05.gold(p.input)
+		defer delete(s)
+		testing.expect_value(t, s, p.solution)
+	}
+}
+
+@(test)
+test_2025_01_silver :: proc(t: ^testing.T) {
+	pairs := []Pair {
+		Pair{input = "L68\nL30\nR48\nL5\nR60\nL55\nL1\nL99\nR14\nL82", solution = "3"}
+	}
+
+	for p in pairs {
+		s := solutions.SOLVER_2025_01.silver(p.input)
+		defer delete(s)
+		testing.expect_value(t, s, p.solution)
+	}
+}
+
+@(test)
+test_2025_01_gold :: proc(t: ^testing.T) {
+	pairs := []Pair{
+		Pair{input = "L68\nL30\nR48\nL5\nR60\nL55\nL1\nL99\nR14\nL82", solution = "6"}
+	}
+
+	for p in pairs {
+		s := solutions.SOLVER_2025_01.gold(p.input)
 		defer delete(s)
 		testing.expect_value(t, s, p.solution)
 	}
