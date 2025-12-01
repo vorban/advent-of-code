@@ -8,15 +8,10 @@ import "../utils"
 
 SOLVER_2015_03 :: utils.Solver {
 	silver = proc(input: string) -> string {
-		Position :: struct {
-			x: int,
-			y: int,
-		}
-
-		visited := make(map[Position]int)
+		visited := make(map[utils.V2]int)
 		defer delete(visited)
 
-		visited[Position{}] = 1
+		visited[utils.V2{}] = 1
 
 		x, y := 0, 0
 		for r in input {
@@ -30,23 +25,18 @@ SOLVER_2015_03 :: utils.Solver {
 			case 'v':
 				y -= 1
 			}
-			visited[Position{x, y}] += 1
+			visited[utils.V2{x, y}] += 1
 		}
 		return fmt.aprintf("%d", len(visited))
 	},
 	gold = proc(input: string) -> string {
-		Position :: struct {
-			x: int,
-			y: int,
-		}
-
-		visited := make(map[Position]int)
+		visited := make(map[utils.V2]int)
 		defer delete(visited)
 
-		visited[Position{}] = 2
+		visited[utils.V2{}] = 2
 
-		santa := Position{}
-		robosanta := Position{}
+		santa := utils.V2{}
+		robosanta := utils.V2{}
 		for r, i in input {
 			switch r {
 			case '>':

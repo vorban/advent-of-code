@@ -4,9 +4,15 @@ import "core:crypto/legacy/md5"
 import "core:fmt"
 import "core:os"
 import "core:time"
+
 Solver :: struct {
 	silver: proc(s: string) -> string,
 	gold:   proc(s: string) -> string,
+}
+
+V2 :: struct {
+	x: int,
+	y: int
 }
 
 get_first_year :: proc() -> int {
