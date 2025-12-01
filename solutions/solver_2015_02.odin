@@ -17,9 +17,9 @@ SOLVER_2015_02 :: utils.Solver {
 
 			sides, _ := strings.split(line, "x")
 			defer delete(sides)
-			w := strconv.atoi(sides[0])
-			l := strconv.atoi(sides[1])
-			h := strconv.atoi(sides[2])
+			w, _ := strconv.parse_int(sides[0])
+			l, _ := strconv.parse_int(sides[1])
+			h, _ := strconv.parse_int(sides[2])
 
 			min_area := min(l * w, w * h, h * l)
 			paper += 2 * l * w + 2 * w * h + 2 * h * l + min_area
@@ -38,9 +38,9 @@ SOLVER_2015_02 :: utils.Solver {
 
 			sides, _ := strings.split(line, "x")
 			defer delete(sides)
-			w := strconv.atoi(sides[0])
-			l := strconv.atoi(sides[1])
-			h := strconv.atoi(sides[2])
+			w, _ := strconv.parse_int(sides[0])
+			l, _ := strconv.parse_int(sides[1])
+			h, _ := strconv.parse_int(sides[2])
 
 			min_perimeter := min(2 * w + 2 * l, 2 * w + 2 * h, 2 * l + 2 * h)
 			ribbon += min_perimeter + w * l * h

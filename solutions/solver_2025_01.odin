@@ -17,7 +17,7 @@ SOLVER_2025_01 :: utils.Solver {
 		for line in lines {
 			if len(line) == 0 do continue
 			letter := line[0]
-			amount := strconv.atoi(line[1:])
+			amount, _ := strconv.parse_int(line[1:])
 
 			switch letter {
 			case 'L': cursor -= amount
@@ -43,7 +43,7 @@ SOLVER_2025_01 :: utils.Solver {
 		for line, i in lines {
 			if len(line) == 0 do continue
 			letter := line[0]
-			amount := strconv.atoi(line[1:])
+			amount, _ := strconv.parse_int(line[1:])
 
 			log.infof("[%d] Moving %d by %c%d", i, cursor, letter, amount)
 			// fmt.printf("[%d] Moving %d by %c%d\n", i, cursor, letter, amount)
