@@ -170,3 +170,35 @@ test_2025_01_gold :: proc(t: ^testing.T) {
 		testing.expect_value(t, s, p.solution)
 	}
 }
+
+@(test)
+test_2025_02_silver :: proc(t: ^testing.T) {
+	pairs := []Pair {
+		Pair{
+			input = "11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-169852,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124",
+			solution = "1227775554"
+		}
+	}
+
+	for p in pairs {
+		s := solutions.SOLVER_2025_02.silver(p.input)
+		defer delete(s)
+		testing.expect_value(t, s, p.solution)
+	}
+}
+
+@(test)
+test_2025_02_gold :: proc(t: ^testing.T) {
+	pairs := []Pair{
+		Pair{
+			input = "11-22,95-115,998-1012,1188511880-1188511890,222220-222224,1698522-169852,446443-446449,38593856-38593862,565653-565659,824824821-824824827,2121212118-2121212124",
+			solution = "4174379265"
+		}
+	}
+
+	for p in pairs {
+		s := solutions.SOLVER_2025_02.gold(p.input)
+		defer delete(s)
+		testing.expect_value(t, s, p.solution)
+	}
+}

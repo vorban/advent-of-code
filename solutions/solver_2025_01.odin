@@ -45,15 +45,10 @@ SOLVER_2025_01 :: utils.Solver {
 			letter := line[0]
 			amount, _ := strconv.parse_int(line[1:])
 
-			log.infof("[%d] Moving %d by %c%d", i, cursor, letter, amount)
-			// fmt.printf("[%d] Moving %d by %c%d\n", i, cursor, letter, amount)
-
 			prev_cursor := cursor
 			capped_amount := amount % 100
 			wraps := amount / 100
 			
-			log.infof("[%d] Wrapped %d times", i, wraps)
-
 			switch letter {
 			case 'L': cursor -= capped_amount
 			case 'R': cursor += capped_amount
@@ -65,7 +60,6 @@ SOLVER_2025_01 :: utils.Solver {
 				if prev_cursor != 0 {
 					wraps += 1
 					wrapped = true
-					log.infof("[%d] Wrapped below 0 @", i)
 				}
 			}
 
@@ -74,19 +68,16 @@ SOLVER_2025_01 :: utils.Solver {
 				if prev_cursor != 0 {
 					wraps += 1
 					wrapped = true
-					log.infof("[%d] Wrapped above 99 @", i)
 				}
 			}
 
 			if cursor == 0 && prev_cursor != 0 && !wrapped {
-				log.infof("[%d] Landed on 0 @", i)
 				count += 1
 			}
 
 			count += wraps
 		}
 
-		// 3194 is too low
 		return fmt.aprintf("%d", count)
 	},
 }
