@@ -7,8 +7,7 @@ PUZZLE = solutions/solver_$(YEAR)_$(DAY).odin
 STUB = day.stub
 
 init:
-	@echo Creating new puzzle file for year $(YEAR), day $(DAY)
-	@mkdir -p puzzles
+	@echo Creating new solution file for year $(YEAR), day $(DAY)
 	@sed -e "s/YYYY/$(YEAR)/g" -e "s/DD/$(DAY)/g" $(STUB) > $(PUZZLE)
 	@echo Created $(PUZZLE)
 
