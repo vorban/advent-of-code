@@ -202,3 +202,35 @@ test_2025_02_gold :: proc(t: ^testing.T) {
 		testing.expect_value(t, s, p.solution)
 	}
 }
+
+@(test)
+test_2025_03_silver :: proc(t: ^testing.T) {
+	pairs := []Pair {
+		Pair{
+			input = "987654321111111\n811111111111119\n234234234234278\n818181911112111",
+			solution = "357"
+		}
+	}
+
+	for p in pairs {
+		s := solutions.SOLVER_2025_03.silver(p.input)
+		defer delete(s)
+		testing.expect_value(t, s, p.solution)
+	}
+}
+
+@(test)
+test_2025_03_gold :: proc(t: ^testing.T) {
+	pairs := []Pair{
+		Pair{
+			input = "987654321111111\n811111111111119\n234234234234278\n818181911112111",
+			solution = "3121910778619"
+		}
+	}
+
+	for p in pairs {
+		s := solutions.SOLVER_2025_03.gold(p.input)
+		defer delete(s)
+		testing.expect_value(t, s, p.solution)
+	}
+}
