@@ -82,6 +82,7 @@ register_solvers :: proc() -> map[string]utils.Solver {
 	solvers["2025_01"] = solutions.SOLVER_2025_01
 	solvers["2025_02"] = solutions.SOLVER_2025_02
 	solvers["2025_03"] = solutions.SOLVER_2025_03
+	solvers["2025_04"] = solutions.SOLVER_2025_04
 
 	return solvers
 }

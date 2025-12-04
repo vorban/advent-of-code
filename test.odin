@@ -234,3 +234,35 @@ test_2025_03_gold :: proc(t: ^testing.T) {
 		testing.expect_value(t, s, p.solution)
 	}
 }
+
+@(test)
+test_2025_04_silver :: proc(t: ^testing.T) {
+	pairs := []Pair {
+		Pair{
+			input = "..@@.@@@@.\n@@@.@.@.@@\n@@@@@.@.@@\n@.@@@@..@.\n@@.@@@@.@@\n.@@@@@@@.@\n.@.@.@.@@@\n@.@@@.@@@@\n.@@@@@@@@.\n@.@.@@@.@.",
+			solution = "13"
+		}
+	}
+
+	for p in pairs {
+		s := solutions.SOLVER_2025_04.silver(p.input)
+		defer delete(s)
+		testing.expect_value(t, s, p.solution)
+	}
+}
+
+@(test)
+test_2025_04_gold :: proc(t: ^testing.T) {
+	pairs := []Pair{
+		Pair{
+			input = "..@@.@@@@.\n@@@.@.@.@@\n@@@@@.@.@@\n@.@@@@..@.\n@@.@@@@.@@\n.@@@@@@@.@\n.@.@.@.@@@\n@.@@@.@@@@\n.@@@@@@@@.\n@.@.@@@.@.",
+			solution = "43"
+		}
+	}
+
+	for p in pairs {
+		s := solutions.SOLVER_2025_04.gold(p.input)
+		defer delete(s)
+		testing.expect_value(t, s, p.solution)
+	}
+}

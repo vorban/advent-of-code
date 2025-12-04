@@ -1,6 +1,6 @@
 <!-- AOCR_BADGES_START -->
 <div>
-<img src="https://img.shields.io/badge/total_stars%20⭐-015%2F524-fcd34d?style=for-the-badge">
+<img src="https://img.shields.io/badge/total_stars%20⭐-017%2F524-fcd34d?style=for-the-badge">
 <br>
 <img src="https://img.shields.io/badge/2015%20⭐-09%2F50-e5e5e5">
 <img src="https://img.shields.io/badge/2016%20⭐-00%2F50-a8a29e">
@@ -14,7 +14,7 @@
 <img src="https://img.shields.io/badge/2023%20⭐-00%2F50-a8a29e">
 <img src="https://img.shields.io/badge/2024%20⭐-00%2F50-a8a29e">
 <br>
-<img src="https://img.shields.io/badge/2025%20⭐-06%2F24-e5e5e5">
+<img src="https://img.shields.io/badge/2025%20⭐-08%2F24-e5e5e5">
 </div>
 
 <!-- AOCR_BADGES_END -->
